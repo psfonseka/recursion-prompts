@@ -23,7 +23,11 @@ var sum = function(array) {
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
 	if (array.length === 0) return 0;
-	return sum(array[0]) + arraySum(array.slice(1));
+	else {
+		if (Array.isArray(array[0])) return arraySum(array[0]) + arraySum(array.slice(1));
+		return array[0] + arraySum(array.slice(1));
+	}
+	
 };
 
 // 4. Check if a number is even.
